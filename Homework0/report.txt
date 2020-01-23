@@ -1,0 +1,17 @@
+Report about compialtion/linkage options:
+
+-c: Compile the source files but do not link them. The output is the object file
+for each source file.
+
+-ansi: Turns off certain features of GCC that are not compatible with ISO C90.
+The option does not cause non-ISO programs to be rejected.  
+
+-pedantic-errors: Issue errors  and reject all programs that use forbidden
+extentions. 
+
+-Wall: Enables all warnings about all constructions that some people find
+questionabl and are generally easy to avoid. 
+
+-o: Places the output in the file. This applies to any output being produced. 
+Doesn't matter if it is an executable file, object, an assembler file, or processed
+C code.

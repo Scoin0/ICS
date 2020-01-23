@@ -1,0 +1,7 @@
+Script started on Sun 19 Jan 2020 07:06:53 PM HST
+]0;<NAME>@<SCHOOL>:~/Homework0<SCHOOL>:/home/<NAME>/Homework0% exitquitexot[2Plsclear[K[Kgcc -ansi -pedantic-errors -Wall - [Kc H[Khomework0.c [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kc
+]0;<NAME>@<SCHOOL>:~/Homework0<SCHOOL>:/home/<NAME>/Homework0% gcc -o homework0 homework0.o
+]0;<NAME>@<SCHOOL>:~/Homework0<SCHOOL>:/home/<NAME>/Homework0% exit
+exit
+
+Script done on Sun 19 Jan 2020 07:07:24 PM HST

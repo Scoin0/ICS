@@ -1,0 +1,9 @@
+Script started on Sun 19 Jan 2020 07:07:39 PM HST
+]0;<NAME>@<SCHOOL>:~/Homework0<SCHOOL>:/home/<NAME>/Homework0% ./homework0
+\Name:	 <NAME>\
+\Hello World\
+\ICS212 Program Structure\
+]0;<NAME>@<SCHOOL>:~/Homework0<SCHOOL>:/home/<NAME>/Homework0% esi[Kx[K[Kxit
+exit
+
+Script done on Sun 19 Jan 2020 07:07:51 PM HST
