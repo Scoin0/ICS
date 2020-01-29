@@ -1,0 +1,6 @@
+Explain how different the actual memory allocations are from what you practiced by hand in the classes.
+
+I honestly thought I understood the material well but trying to put it into practice was actually quite difficult. I might have still done it all wrong. 
+Instead of going by a few bytes like in class, some "houses" jumped. For example, in the dummy function z and w were quite different. Going from F29AB610 to F29AB60C. That's going backwards isn't it?
+The values for some were in the negitives which causes me to think I might have messed up. These were all on the pointers. But on a rerun I got all positive numbers. So I'm totally sure I messed something up here.
+Also the end of the array for ca was given a B.
