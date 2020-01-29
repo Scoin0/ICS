@@ -40,7 +40,6 @@ int main (int argc, char *argv[])
 int user_interface() 
 {
     int number;
-    double result;
     int flag = 1;
 
     printf("This program generates a unit conversion tabled based on the integer given.\n");
@@ -59,6 +58,7 @@ int user_interface()
             flag = 0;
         }
     }
+    return 0;
 }
 
 /***************************************************************************
@@ -89,15 +89,16 @@ double convert(double convert)
 
 void print_table(int numberGiven)
 {
+    int i;
     printf("\tinches\tcentimeters\n");
-    for (int i = 0; i <= numberGiven; i++) 
+    for (i = 0; i <= numberGiven; i++) 
     {
         double startingNumber;
         double result;
+        double addedNumber;
         startingNumber = i;
         result = convert(startingNumber);
         printf("\t%6.2f\t%11.2f\n", startingNumber, result);
-        double addedNumber;
         addedNumber = startingNumber + 0.5;
         result = convert(addedNumber);
 
