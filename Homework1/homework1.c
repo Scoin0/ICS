@@ -6,8 +6,9 @@
 //    INSTRUCTOR:
 //    DATE:         Jan 27th, 2020
 //    FILE:         homework1.c
-//    DESCRIPTION:
-//
+//    DESCRIPTION:  The point of this program is to do interact with the user
+//                  and do a unit conversion using functions. This program
+//                  also prints a unit conversion table.
 //
 ****************************************************************************/
 
