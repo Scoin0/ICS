@@ -1,0 +1,91 @@
+Feb 12, 2020 Notes:
+
+This might be a little hard to follow without being in class. I also might not have heard correctly.
+
+Homework 3 Help:
+
+Every function must have a debug option. All parameters must be printed except pointer.
+Format nicely. Of course.
+Use rm *.o to remove all object files to clean the make. BACKUP just in case.
+
+3 Different Data Structures Implemented in C:
+
+    1. Static Array         float num[10];
+On the stack we'll have a house with 10 floats.
+For this example, we start at address 21000, the address is not changeable.
+In the Data its float * 21000.
+If a user needs more than 10, what do we do?
+- If we have 10 different users we can create 10 different programs, horrible.
+- If a user has 1000 then we'll just use the 1000 instead of 10.
+  Problem, we're using too much memory.
+When we exit the function we deallocate the array.
+When should we use a static array?
+- Only use if we know how much would be in the array. Things that don't change. Such as the months of the year.
+
+    2. Dynamic Array       float *num;
+We can have the size of the array at runtime.
+On the stack we're gonna have a pointer and the value will be a ?.
+
+    float *num;
+    int n = 10;
+    num = give me space for n floats;
+
+We get the number of n from the user, in the case is 10, and we allocate space for it in the Heap.
+The heap then points back to pointer num and changes the stack to the address of the Heap.
+When we exit the function we deallocate the stack instead of the heap.
+
+"Java teaches you to be sloppy."
+
+If we keep exiting and going back to the function, the heap remains while the stack gets removes. This will cause you to lose memory over time.
+This is called a memory leak. This means we have reserved space in memory, we must clean up.
+
+    float *num;
+    int n = 10;
+    num = give me space for n floats;
+    unreserve(whose address is in *num)
+
+In the terms of pointers, we think of the pointers as the key and the house... as the house.
+
+The number one problem in C is what's called the Dangling Pointer.
+Memory Leak and Dangling Pointer are both related.
+The memory leak is when we forget to unreserve memory.
+
+    float *num;
+    num[0] = 11.5
+    printf("%f", num[]);
+
+But where did the 11.5 go? It went to another house, whose address is unknown.
+We need to allocate space for the size of the array.
+
+"What's worse than your program crashing? Your program not crashing and working! That means it works and has a bug in it."
+
+One problem we are left with is if a person needs 100 in the n. We are left with that. Each person is not gonna have different sizes.
+
+    3. Linked List
+
+    float *p;
+    p = give me space for 1
+
+In the stack p is the address of the heap which has our example value of 175 + the pointer to an address.
+The neighbor might start with the address 18000 and holds a value of 125 + a pointer to an address and this just keeps going on.
+
+    struct bighouse
+    {
+        float f;         <-- float
+        struct bighouse* <-- Datatype
+    }
+
+The problem with the linked list is if we don't know the address of the next house. Instead we should add the NULL.
+Address 0 is considered as a non valid address.
+
+As soon as you create a pointer, always add NULL to it. Having a null in a pointer will always crash.
+This is good because that means we are doing something weird with the pointer. It might access a random bit in memory which is what we
+don't want.
+
+2 ways to get a good value into a pointer.
+Allocate values to the Heap or put an address in the pointer.
+This is how we can change null.
+
+The whole thing about getting addresses on the heap is known as Dynamic Memory Allocation.
+
+DO NOT BE LATE ON HOMEWORK 3 AND ONWARD.
