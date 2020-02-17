@@ -1,9 +1,9 @@
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Assignment 2b
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ryan Narayan
+//    INSTRUCTOR:   
 //    DATE:         Feb 4th, 2020
 //    FILE:         halfstring.c
 //    DESCRIPTION:  This the file that has the function for halfstring.
