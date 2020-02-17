@@ -1,9 +1,9 @@
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Assignment 3b
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ryan Narayan
+//    INSTRUCTOR:   
 //    DATE:         Feb 16th, 2020
 //    FILE:         record.h
 //    DESCRIPTION:  Contains the struct record
