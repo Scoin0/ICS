@@ -1,0 +1,109 @@
+put links on things searched.
+
+make -f hw1.mak
+
+If you make a file called Makefile you can just do $make
+
+
+Just some notes while in class.
+
+Pointers:
+---
+
+A house, variable, that contains an address.
+
+---
+int a;
+A house is created with the variable of 'a' and has the address of 55220. What's inside is unknown.
+We create another house and let's name it 'pa', inside is 55220.
+
+A pointer is not one datatype. It encompasses all datatypes.
+
+We create a house, type a datatype followed by a variable. "int b;"
+It would look like "int * pa" or "int *pa" to create a pointer.
+
+&a grabs the address and to give it to b we do "pa = &a". Now pa has the address of a.
+To put something else into the house, do "*pa = 6". Now a got changed to 6. The * is called the dereference operator.
+
+*(pa + 3) = 9
+If we did that, then it would look for the a's address which is 55220 and would end up pulling up the address of 55232.
+Because the houses have 4 bytes, it looks for the next instead. Since pa is a pointer and 3 is an int.
+
+Doing *(pa - 2) = 11 which goes backwards.
+
+The difference from Java to C, or rather other languages, C gives you direct access to raw pointers.
+
+---
+
+int nums[3]; is also a pointer.
+In the Stack we get a big house to carry the array. If the byte size is 4 then the house is 12. For our example the house has the
+address of 51000. In the Data side of things we have nums which is int* 51000.
+
+int nums[3];
+*(num - 1) = 4 breaks into neighbors house.
+The resulting address is 50996 since it's subtracting 1 int
+The house will now contain 4.
+The above is bad.
+
+int nums[3];
+*(nums + 1) = 8
+This is okay because since it's skipping one integer and changing the next one.
+The above is the same as nums[1] = 8
+
+For this example we can only use these values.
+*(num + 0) = 7;
+*(num + 1) = 11;
+*(num + 2) = 12;
+
+Which is all the same as:
+num[0] = 7;
+num[1] = 11;
+num[2] = 12;
+
+"So now", he says, "What if we call a function?"
+
+change (nums);
+
+void change(int* arr) {
+
+    arr[0] = 3;
+
+}
+
+This creates another house called arr that's an (int *) with the value of nums... in this case holds 51000.
+For the second line, we changed an array defined in main from another function. The house at address 51000 and it's first 4 bytes
+were changed to 3.
+
+Pointers are powerful.
+
+The most common mistake. Are we passing an array? No we're passing the address.
+
+
+---
+
+int nums[3];
+
+printarr(arr); /*Job is to print the array*/
+
+/*What is the size of the array?*/
+void printarr(int *ar) {
+
+    int i;
+    for (i =0; i < 5000; i++) {
+    /*This will print everything from the starting point of the array without an endpoint*/
+    }
+}
+
+We must know where it ends. There needs to be a startPoint and an endPoint.
+
+void printarr(int *ar, int endPoint){}
+
+There's a special character array which is a c-string. We can do a delimiter with this.
+\0 is known as a null character.
+So what I'm getting out of this is for the homework assignment, add the \0 at the end of any entered character array.
+fgets gives a string. %s is a string.
+
+char input[25];
+printf("%s", input);
+
+This is asking for a string. Remember to add the null character at the end of the String.

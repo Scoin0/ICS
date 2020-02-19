@@ -1,0 +1,22 @@
+--------------------------------------------------------------------------------
+*** Assume the following variables are already defined. ***
+
+- numbers: array of int
+- n: the size of the integer array (numbers)
+- m: the number of first slots which already have values (m < n)
+- num: the number to insert to the array
+--------------------------------------------------------------------------------
+
+define an int called holding
+define an int called count
+define an int called switch
+
+while (m < n)
+   copy from 0 to count
+        while (count < n)
+            if (num > numbers[count])
+                copy from num to holding
+                copy from numbers[count] to numbers[switch]
+                copy from holding to numbers[switch]
+                copy from count + 1 to count
+    copy from m + 1 to m
