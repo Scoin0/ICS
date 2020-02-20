@@ -1,0 +1,33 @@
+ Notes for Feb 19th, 2020:
+
+Converting Pseudocode to C code:
+'copy from next in the record whose address is in start to temp' is the same as 'temp = (*start).next'
+
+When writing good pseudocode, we must be able to convert to C code in minutes. If it takes any longer, then the pseudocode is poorly written
+or just does not work.
+In order to test the pseudocode, we must trace it.
+
+"This is going to be painful work."
+"Your head should hurt in 30 minutes, if it does't you're not working hard enough."
+
+Pseudocode talk:
+
+Some preface...
+The difference between last classes linked list and this one is that this one contains all of a record.
+Each element in the linked list contains all the information we need plus an address.
+If we have nothing in the start on the stack then it will contain NULL or 0.
+
+|STACK| | HEAP | START - > |71000| |62000|
+|-----| |                   *info*  *info*
+|71000| |                  |62000| |NULL | <- END
+
+In order to figure out the address of the next address on the heap, we need to find the current address. For example if the next
+address on the heap was 51000, then we need to know 62000 before we can obtain the 51000 address. As I understand it...
+
+The delete function might be a bit difficult. If the first two, which are duplicates, then START gets changed.
+
+Why do we use memory on the Heap?
+If our linked list was on the stack then we'd end up with a limited amount of space. The heap allows us to add as mush as we need.
+Heap memory does not have scope.
+
+If we copy something from a pointer both variables better be both pointers.
