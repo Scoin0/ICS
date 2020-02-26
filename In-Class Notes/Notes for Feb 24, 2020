@@ -1,0 +1,211 @@
+# In-Class Notes for Feb 24, 2020
+Reminder, these are shitty notes that I attempt to take.
+
+# Before class begins:
+Keep attempting to learn how to trace.
+Keep trying to learn how pointers work.
+Learn from previous mistakes.
+
+Q: Can you go over Tracing in the Heap
+A:  *He starts with writing the pseudocode for allocate to the heap and free the space*
+
+RAM
+As far as we're concerned, the RAM contains...
+
+Stack:  Assign a house and give it a variable
+        Contains the address of the house in the heap
+        The stack has a name, a value, and an address
+        If you have just variables draw the stack
+
+Heap:   Get a house, if the stack has a name, the heap won't have a name
+        Contains the address to the house on the stack
+        If you have dynamic memory allocation, draw the heap
+Data:
+Buffer:
+
+---
+
+Stack       Heap      Data               Buffer
+Variables   Values    Global Variables   An array of characters
+
+---
+Dynamic Memory Allocation allows for reserving space as the program is running.
+
+If we have a pointer.
+    int *arr;
+This is what shows on the stack. *anything in () means crossed out*
+    Stack
+ (?) 62122
+
+If we say:
+    arr = malloc(*how much space you want measured in bytes*);
+But we don't the size of each datatype. However, we can do:
+    arr = malloc(sizeof(int));
+In terms of our homework we'd probably need:
+    arr = malloc(sizeof(struct record));
+
+If we do, *arr = 12;
+
+Then the heap:
+Heap
+---
+Address = 62122
+Value = 12
+---
+
+If we do:
+    arr = malloc(sizeof(int) x 10);
+Then on the heap it creates an array that houses 10 integers.
+We can modify it just like a regular array.
+    arr[1] = 3;
+    arr[2] = 7;
+
+The heap looks like:
+Heap
+----
+Address: 62122
+Values: [12] [3] [7] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+---
+
+If we exit the function it only deallocates what ever is on the stack not on the heap. This is called a Memory Leak.
+What we need to do to get rid of the memory leak is to call the free function.
+    //free(*send address*);
+    free(arr);
+If we freed start, we'd be freeing the address of the first house and lose the 'keys' or address to all the rest of the houses
+If we wanted to remove everything, we'd need a temp pointer to store the address of the next house in start and continue doing that with as
+many houses are in start.
+If we freed arr then we'd lose everything on the heap but the stack the value would not change.
+Cannot ever change a value by variable
+Can change by passing the address.
+A good idea is to set the value to NULL
+    arr = NULL;
+A pointer should always be null unless we know what's in there.
+
+"There is hope when your program crashes, there is no hope when it doesn't crash."
+
+Free address array does not make sense, so don't do free(&arr);
+
+For homework, keep the address for the heap and the address for the stack should be very different.
+For example, 50000 for the stack and 3000 or the heap.
+
+When you pass an array you need the starting point and the size.
+Only with string do you not need two parameters since all we have to look for is a null character.
+Every string function assumes there is a null character.
+
+One more fun thing we can do with pointers. Anything in () means crossed out.
+    char *p;
+    int *arr;
+    arr = malloc (sizeof(int x 4));
+    arr[0] = 12;
+    p = (char*) arr;
+    p[0] = 'A'; // A = 65 or 01100001
+
+Stack
+-----------
+(?) 75000 | ->  p
+-----------
+(?) 75000 | ->  arr
+
+Heap
+-----------
+75000     | ->  address
+-----------  -----------  -----------  -----------
+12        | |          | |          | |          | ->  value
+-----------  -----------  -----------  -----------
+The first bit of the first house will then be changed and broken up with the binary of 12 being split.
+
+"I guess we'll start class after the break." This took a total of 1.5 hours.
+
+Next class will have a quiz and will include tracing with pointers and an array.
+
+## Class Begins
+
+# Homework 5 Notes + In-Class Notes
+
+2 areas where trouble can occur.
+How the read works and actual requirements.
+
+We cannot use this struct in a linked list. This is only a structure.
+
+Contains 5 struct records:
+    struct record bankone[5];
+If we wanted to print the very first name we'd:
+    printf("%s", bankone[0].name);
+If we wanted to print the very first name and the very first character we'd:
+    printf("%s", bankone[0].name[0]);
+
+What is wrong with this;
+    strcpy(&bankone[0].name, "Joe");
+We don't need the '&'.
+
+Contains the number of customers:
+    int numcustomers;
+
+What does writeFile do?
+Writes the array. Contains accNum, name, address.
+For this assignment, assume no bad data.
+The first parameter of the function is the address of the array.
+The second parameter of the function is the number of actual customers in the array;
+The last parameter is the name of the file we are going to write too.
+
+Example:
+    writeFile(bankone, numcustomers, "Filename");
+
+What does read file do?
+We take what's in the file and populate the array.
+
+The first parameter of the function is the address of the array.
+The second parameter of the function is the pointer of numcustomers so we can get back the number of customers. (use & when recieving)
+The last parameter is the file to the array.
+
+Testing:
+    Multiple ways of doing it.
+    Make up data.
+    Goal is to test correctly.
+    Example of not good testing data:
+        If we are able to remove a whole function yet the program still says the program is running properly.
+
+Write over the file if it already exists.
+
+Instead of using stdout we would use something else, for the teachers example he used hw4filein.
+Define a variable on the stack, connect it to the buffer and connect that to the file.
+Don't forget to close the buffer.
+
+New datatype: FILE
+
+Define a variable
+    FILE *hw4fileout;
+Allocate space for the buffer and connect the device to the file.
+    hw4fileout = fopen("hw4out.txt", );
+To release it all:
+    fclose(hw4fileout);
+
+If we don't close the file properly, we might have corruption or dataloss.
+
+For input we use fgets or fscanf.
+
+File has an end while keyboard doesn't have an end.
+
+The special character for the end of a file is EOF.
+Check for EOF in a loop when reading a file.
+
+Suppose we have in a file,
+    111
+    22Dole
+In the buffer we'll have
+    1 1 \n 2 2 D o l e EOF
+fgets will read the EOF but,
+    1 1 \n 2 2 D o l e \n EOF
+fgets won't read EOF and will stop at the second \n
+
+    while {
+        read accNum
+        read addr
+    }
+
+This code will put EOF as accNum which will error out.
+fclose writes EOF for you.
+
+Understand what you're writing.
+
+Read from a Textfile or an ASCII not from a binary file.
