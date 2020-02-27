@@ -1,0 +1,89 @@
+In-Class Notes for Feb 26, 2020:
+
+Going Over The Quiz:
+Question 1: TRACE
+    void exchange (float c[], float b, float *a) or (50018, 15, 50022)
+    {
+        float *temp;
+        temp = c;
+        b = *a + 1.1;
+        a[0] = b - 2;
+        c[0] = temp[1] + 2.2
+    }
+
+    int main (int argc, char *argv[])
+    {
+        float a, b, c[2], temp;
+        a = 10; b = 20; c[1] = 15;
+        exchange(c, c[1], &c[1]);
+    }
+----------------------------------------------------------
+Ans)
+
+"If you started tracing in line one.... talk to me after class."
+*Anything with () means crossed out
+    ADDRESS  |  NAME  |  DATATYPE  |  SCOPE  |  VALUE   |
+     50000      argc       int        main
+     50002      argv     char *[]     main
+     50010       a        float       main      (?) 10
+     50014       b        float       main      (?) 20
+     50018      c[0]      float       main      (?) 16.3
+     50022      c[1]      float       main    (?)(15) 14.1
+     50026      temp      float       main        ?
+     50030       c        float*    exchange    50018
+     50038       b        float     exchange   (15)16.1
+     50042       a        float[]   exchange    50022
+     50050      temp      float*    exchange   (?)50018
+
+Question 2: Function Call (Write a function call)
+    void function1(double *x, double b[]){...}
+----------------------------------------------------------
+    "a pointer is an array and an array is a pointer"
+Ans)
+    double arr[2];
+    arr[0] = 1.1;
+    arr[1] = 2.2;
+    functino1(&arr[0], arr);
+
+If you do;
+    double x[n] = {0.0};
+Where n is any number and the entire array will end up being filled because of the curly braces. It's just something that C has.
+
+Homework Questions:
+Didn't really hear the question, but I think it was something like "Are we using what's in the textfile as fields for our data program?"
+Answer... Yes.
+
+* This homework question then turned into a homework lesson.
+
+Example: Trace and write code to make the first student 111, JS, and 4.0.
+
+    GIVEN:
+        struct record
+        {
+            int accno;
+            char name[4];
+            float gpa; (I have no idea what this is)
+        }
+
+        struct record student[3];
+
+    CODE:
+        student[0].accnum = 111;
+        strcpy(student[0].name, "JS");
+        student[0].gpa = 4.0;
+
+    TRACE:
+    Because it's a struct... we look at the data
+    DATA:
+    student struct record * 52000
+    A:52000                   A:52010         A:52020
+    |111|'J'|'S'|'/0'| | 4.0 | | | | | | | | | | | | | | | | |
+    The | | just means there's nothing inside of it.
+
+Example: Write the prototype for the following function call.
+
+    GIVEN:
+        modify(student, student[3], &student[1].gpa, student[0].name, &student[0].name[0]);
+
+    CODE:
+        void modify(struct record * a, struct record b, float * c, char * d, char *);
