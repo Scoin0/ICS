@@ -1,9 +1,9 @@
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Assignment 5
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ravi Narayan
+//    INSTRUCTOR:   
 //    DATE:         Mar 1st, 2020
 //    FILE:         database.h
 //    DESCRIPTION:  This is the header file for iofunctions.c

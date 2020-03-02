@@ -1,10 +1,10 @@
 
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Assignment 5
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ravi Narayan
+//    INSTRUCTOR:   
 //    DATE:         Mar 1st, 2020
 //    FILE:         iofunctions.c
 //    DESCRIPTION:  This file contains the functions for reading and writing
@@ -16,6 +16,16 @@
 #include <stdio.h>
 #include <string.h>
 #include "iofunctions.h"
+
+/***************************************************************************
+//
+//    FUNCTIONNAME: readFile
+//    DESCRIPTION:  Read data from a file
+//    PARAMETERS:   accArray  (struct record)   : an array for struct record
+//                  numCust   (int*)            : a pointer to the number of customers
+//                  fileName  (char[])          : the file name
+//
+****************************************************************************/
 
 int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
 {
@@ -38,6 +48,16 @@ int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
     return 0;
 }
 
+/***************************************************************************
+//
+//    FUNCTIONNAME: writeFile
+//    DESCRIPTION:  Writes data to a file
+//    PARAMETERS:   accArray  (struct record)   : an array for struct record
+//                  numCust   (int)             : the amount of customers
+//                  fileName  (char[])          : the file name
+//
+****************************************************************************/
+
 int writeFile(struct record accArray[ ], int numCust, char fileName[])
 {
     FILE *filePointer;
@@ -51,7 +71,7 @@ int writeFile(struct record accArray[ ], int numCust, char fileName[])
 
     for(i = 0; i < numCust; i++)
     {
-        fprintf(filePointer, "%d\t%s\t%s\n", accArray[i].accountno,accArray[i].name,accArray[i].address);
+        fprintf(filePointer, "%d %s %s\n", accArray[i].accountno,accArray[i].name,accArray[i].address);
     }
 
     fclose(filePointer);

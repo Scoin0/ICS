@@ -1,5 +1,5 @@
-0	John	1495 Kiukee Pl
-8	Domino	26 Hoolai St
-24	Kyle	24 North Kainalu Dr
-80	Tony	245 Kuuhale St
-25	Steve	Dirt House
+2 John 1598 Lanikai Pl
+8515 Domino 26 Hoolai St
+240 Kyle 24 North Kainalu Dr
+8008 Tony 245 Kuuhale St
+25565 Steve Dirt House
