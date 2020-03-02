@@ -22,14 +22,18 @@ int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
     FILE *filePointer;
     filePointer = fopen(fileName, "r");
     int i = 0;
+    struct record rec;
     
     if(filePointer == NULL)
     {
         exit(1);
     }
 
-    while(fread(&accArray[i++], sizeof(struct record), 1, filePointer));
-    *numCust = i;
+    while(fscanf(filePointer,"%d %s %80[^\n]", &rec.accountno, rec.name, rec.address) != EOF)
+    {
+        accArray[*numCust] = rec;
+        *numCust = *numCust + 1;
+    }
     fclose(filePointer);
     return 0;
 }
@@ -47,9 +51,9 @@ int writeFile(struct record accArray[ ], int numCust, char fileName[])
 
     for(i = 0; i < numCust; i++)
     {
-        fwrite(&accArray[i], sizeof(struct record), 1, filePointer);
+        fprintf(filePointer, "%d\t%s\t%s\n", accArray[i].accountno,accArray[i].name,accArray[i].address);
     }
 
     fclose(filePointer);
-    return 0;
+    return i;
 }
