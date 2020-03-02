@@ -10,9 +10,8 @@
 //
 ****************************************************************************/
 
-#include "iofunctions.c"
 #include <stdio.h>
-#include <string.h>
+#include "iofunctions.c"
 
 /***************************************************************************
 //
@@ -25,13 +24,13 @@
 
 int main(int argc, char *argv[]) 
 {
+    int numcustomers;
+    int i;
     struct record bankone[5] =  {2, "John", "1598 Lanikai Pl",
                                 8515, "Domino", "26 Hoolai St",
                                 240, "Kyle", "24 North Kainalu Dr",
                                 8008, "Tony", "245 Kuuhale St",
                                 25565, "Steve", "Dirt House",};
-    int numcustomers;
-    int i = 0;
 
     printf("Writing customer data to file...\n");
     writeFile(bankone, 5, "output.txt");

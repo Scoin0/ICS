@@ -12,9 +12,7 @@
 //
 ****************************************************************************/
 
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "iofunctions.h"
 
 /***************************************************************************
@@ -29,14 +27,13 @@
 
 int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
 {
+    struct record rec;
     FILE *filePointer;
     filePointer = fopen(fileName, "r");
-    int i = 0;
-    struct record rec;
     
     if(filePointer == NULL)
     {
-        exit(1);
+        return 0;
     }
 
     while(fscanf(filePointer,"%d %s %80[^\n]", &rec.accountno, rec.name, rec.address) != EOF)
@@ -60,13 +57,13 @@ int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
 
 int writeFile(struct record accArray[ ], int numCust, char fileName[])
 {
+    int i = 0;
     FILE *filePointer;
     filePointer = fopen(fileName, "w");
-    int i = 0;
 
     if(filePointer == NULL)
     {
-        exit(1);
+        return 0;
     }
 
     for(i = 0; i < numCust; i++)

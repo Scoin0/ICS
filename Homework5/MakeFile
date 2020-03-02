@@ -1,0 +1,13 @@
+all: homework5
+
+homework5: driver.o
+	gcc -o homework5 driver.o
+
+driver.o: driver.c
+	gcc -ansi -pedantic-errors -Wall -c driver.c
+
+iofunctions.o: iofunctions.c
+	gcc -ansi -pedantic-errors -Wall -c iofunctions.c
+
+clean:
+	rm -f *.o homework5
