@@ -1,0 +1,46 @@
+In-Class Notes for Mar 2, 2020
+------------------------------
+
+Writing pseudocode to C code:
+
+Pseudocode:
+define a pointer to a record called temp
+copy form start to temp
+define a pointer to a record called new
+define a pointer to a record called last
+
+if (start is equal to NULL)
+    allocate a heap space and store its address into new
+    copy from uaccountno into accountnumber in the record whose address is in new
+    copy from uname into name in the record whose address is in new
+    copy from uaddress into address in the record whose address is in new
+    copy from new to start
+    
+C Code:
+
+struct record *temp, *new *last;
+temp = start;
+
+if(start == NULL) {
+    new = (struct record*)malloc(sizeOf(struct record);
+    (*new).accountnumber = uaccountno;
+    //or you can do...
+    new -> accountno = uaccountno;
+    ...
+}
+
+start = new;
+
+> This is just from copying the board. No idea if any of it works completely.
+
+In reading the pseudocode instructions, we have a part that states "release the space whose address is in temp"
+Which in C translates to free(temp); It's always safe to set the address to NULL afterwards.
+It'll look like this:
+> free(temp);
+> temp = NULL;
+
+--------------------------------------------------------------------------------------
+
+A lot of today's class was mostly going over tracing and reiterating things we already talked about.
+Project 1 is just adding previous weeks together and trying to get everything to run smoothly. A
+working database... that uses a flatfile... 
