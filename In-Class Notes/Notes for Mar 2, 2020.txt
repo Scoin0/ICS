@@ -41,6 +41,12 @@ It'll look like this:
 
 --------------------------------------------------------------------------------------
 
+Something that can be done, you can read from a file by invoking < in the starting arguments.
+The example shown looked like ./homework1 < hw.txt
+This grabs the value inside the txt file and automatcally puts it as an input in the program.
+It's basically like the keyboard inputs but in a text file.
+
 A lot of today's class was mostly going over tracing and reiterating things we already talked about.
 Project 1 is just adding previous weeks together and trying to get everything to run smoothly. A
 working database... that uses a flatfile... 
+

@@ -33,7 +33,7 @@ int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
     
     if(filePointer == NULL)
     {
-        return 0;
+        return 1;
     }
 
     while(fscanf(filePointer,"%d %s %80[^\n]", &rec.accountno, rec.name, rec.address) != EOF)
@@ -42,7 +42,7 @@ int readFile(struct record accArray[ ], int* numCust, char fileName[ ])
         *numCust = *numCust + 1;
     }
     fclose(filePointer);
-    return 0;
+    return numCust;
 }
 
 /***************************************************************************
