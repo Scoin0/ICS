@@ -1,0 +1,41 @@
+In-Class Notes For Mar 9th, 2020
+--------------------------------
+
+For project 1, first thing to do is to check the arguments to see if the program is in debug and
+then readFile. Finally display the menu. Upon quitting, writeFile to disk before exiting the program
+to save. Before when adding an account I used # as my delimiter and it's how I figured when the person
+had finished writing the address. Now I'll have to readd that back into the address when writing so that
+readFile/addRecord can figure out where the address ended. Just remember that. 
+As he states, though that's what I was already going to do, do each function one at a time. First
+probably should do addRecord and deleteRecord. Of course always state what's happening. So if something
+is deleted, state that the record has been deleted. That way the user knows what is going on and isn't
+just looking at the menu options again. Completely sperate the user interface from the database functions. 
+
+For the testplan which is part of Homework 6b. We are using a given excel sheet to add our test cases to.
+He's explaining what stage this test plan is. He explained we started with the requirements which then
+moves to implementation, then to QA then to deployment. This testplan section is the QA. By starting at
+the requirements, testers create a testplan of things to check and test to make sure all requirements are
+met and basically check for bugs. The testplan consists of the test cases.
+Goal number one of a test case should be reproduceable. If it's reproduceable we could put all the 
+commands into a file and run it to reproduce the error. Every time something is 'fixed' we must
+retest everything all again. 
+
+If there is something that doesn't work. Take it out. As long as we got most of it working, that's fine.
+
+Numbering System    Base    Digits
+------------------------------------
+Decimal              10      0-9
+Binary               2       0-1
+
+For the example on the board he wrote 237. That's 10^2 for 2, 10^1 for 3, and 10^0 for 7 or 2x100, 3x10, 7x1 to make 237.
+Next for binary, 1011101... You know what, I'm making a whiteboard thingy.
+*using windows whiteboard program*
+Now done with that, memory is made of bytes. Of course. It's stored in 1's and 0's. If a file is a text file,
+then has leading zeros. Basically this is leading up to Binary Files vs. Text File.
+
+A text file is a file full of character arrays. It's all strings. But with a binary file we can only
+read a chunk of bytes. He explained that doc files are binary files as it saves the formatting. I guess
+that's also way sometimes stuff gets corrupted.
+
+
+
