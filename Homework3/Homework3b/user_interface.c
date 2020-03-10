@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "database.c"
+#include "database.h"
 
 int debugMode;
 
