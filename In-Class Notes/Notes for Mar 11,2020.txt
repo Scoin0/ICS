@@ -1,0 +1,76 @@
+In-Class Notes for Mar 11, 2020
+-------------------------------
+
+> Things in quotations means the teacher said it. Either funny or something I think I should know.
+
+>> What is a shell script?
+Basically, a shell script is a list of commands telling the computer instructions of things to either
+do or run. 
+
+In order to run a shell script, we'd need to make it an executable. We have to run the 'chmod' command.
+This command allows you to change the permissions of a file. If 'ls -l' is typed within a directory, a
+list of files will appear along with their permissions. The first column tells you if the file is a 
+directory or not. Then it goes in threes, the User, Group, and Everyone else. 'r' stands for read, 'w'
+stands for write, and 'x' stands for execute. The command he showed to make it an executable was
+'chmod 744 <file>' but I also know you can do chmod +x <file> (- or + works too I believe).
+
+Some useful commands:
+'wc' = word count
+'cut' = cuts a section from each file
+The exact line he used when showing this was 'ls -l | cut -c1-1 | grep "d" | wc'
+
+"The whole point of doing recursion is because of Tracing."
+"Until you can Trace any line of code, you don't know how to code."
+"Unless the Uni refuses to let me come here. I will be here." : Talking about Corona Virus
+"If we do meet in person, we'll probably have a lot of quizzes."
+
+>> Recursion: 
+
+    sum(n) = 1 + 2 + 3... + n
+    sum(n) = sum(n-1) + n
+    sum(1) = 1
+    
+----------------------------------
+
+    int sun(int n)
+    {
+        int answer;
+        if (n != 1)
+            answer = sum(n-1) + n;
+        else
+            answer = 1;
+        return answer;
+    }
+
+The above does not work if n is 0 or a negitive number. Either having (n > 1) will allow for 0 to work
+but will still not allow negitive numbers. Perhaps add another if statement to check if it is 0 or a 
+negitive number and give back the correct number. Let's say that negitive numbers don't work. Then
+return a '-1' on a negitive value and document that the '-1' is a error code rather than an answer.
+
+For a bit I went into the whiteboard program... We traced the above code to see what happens. 
+As I understand it, on returning the computer will take the last value from the stack and replace
+'sum(n-1)' with that value then continues to do so until there is no more left over. It will release
+the space a well.
+
+Why do we never write a recursion program outside of university? Because it can keep growing. We can
+take too much space. A user can take up as much space as they want crippling a program or a computer.
+It is not a great practical practice. 
+
+>> "Since we're almost out of time, let me give you a question."
+
+    int main()
+    {
+        int nums[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+        printArray(nums);
+    }
+    
+    void printArray(int[] arr)
+    {
+        if (*arr != 0)
+        {
+            printf("%d", arr[0]);
+            printArray(arr + 1);
+        }
+    }
+    
+    We are told to try and see if the program actually works and once it does, trace it.
