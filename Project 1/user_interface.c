@@ -1,33 +1,25 @@
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Project 1
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ravi Narayan
+//    INSTRUCTOR:   
 //    DATE:         Mar 15th, 2020
 //    FILE:         user_interface.c
 //    DESCRIPTION:  The interface to control the program.
 //
 ****************************************************************************/
 
-/**
- * 
- * TODO:
- * ADD SUCCESS AND FAILURE FLAGS TO ALL FUNCTIONS
- * FORMATTING
- * MAKEFILE
- * NOT WANTING TO DIE
- * 
-**/
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "database.c"
+#include "database.h"
+#include "record.h"
 
 int debugMode;
 
 void displayMenu(void);
-void getAddress(char [], int size);
+void getAddress(char []);
 
 /***************************************************************************
 //
@@ -84,7 +76,7 @@ int main(int argc, char *argv[])
         }
 
         if (choice == 1)
-        {
+        {   
             printf("Please give the account a number: \n");
             fgets(tempAccountNumber, sizeof(tempAccountNumber), stdin);
             accountNumber = atoi(tempAccountNumber);
@@ -103,7 +95,7 @@ int main(int argc, char *argv[])
 
             printf("Please enter their address: \n");
             printf("Type '#' on a new line to finish typing.\n");
-            getAddress(address, sizeof(tempAddress));
+            getAddress(address);
 
             addRecord(&start, accountNumber, name, address);
 
@@ -138,7 +130,7 @@ int main(int argc, char *argv[])
 
             printf("Please enter their new address\n");
             printf("Type '#' on a new line to finish typing.\n");
-            getAddress(address, sizeof(tempAddress));
+            getAddress(address);
 
             modifyRecord(start, accountNumber, address);
             printf("\nPress enter to continue.\n");
@@ -161,7 +153,7 @@ int main(int argc, char *argv[])
     }
 
     writeFile(start, "file.txt");
-    cleanUp(start);
+    cleanUp(&start);
     return 0;
 }
 
@@ -198,9 +190,9 @@ void displayMenu()
 //
 ****************************************************************************/
 
-void getAddress(char address[], int size)
+void getAddress(char address[])
 {
-    char tempAddress[size];
+    char tempAddress[80];
 
     if(debugMode == 1)
     {
@@ -208,7 +200,6 @@ void getAddress(char address[], int size)
         printf("Fuction Called: getAddress();\n");
         printf("Parameters Passed:\n");
         printf("Account Address: %s\n", address);
-        printf("Size: %d\n", size);
         printf("*********************************************\n");
     }
 

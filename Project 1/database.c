@@ -1,9 +1,9 @@
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Project 1
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ravi Narayan
+//    INSTRUCTOR:   
 //    DATE:         Mar 15th, 2020
 //    FILE:         database.c
 //    DESCRIPTION:  Holds all of the functions for the database.
@@ -163,7 +163,6 @@ void printAllRecords (struct record *start)
             current = current->next;
         }
     }
-    return 0;
 }
 
 /***************************************************************************
@@ -318,7 +317,7 @@ int readFile(struct record **start, char file[])
     if (filePointer == NULL) 
     {
         FILE *filePointer = fopen(file, "w");
-        fscanf(filePointer, "", stdin);
+        fprintf(filePointer, ".");
         fclose(filePointer);
         printf("\nNo file found. Creating one now...\n");
         return -1;
@@ -426,6 +425,11 @@ void cleanUp(struct record **start)
     printf("Cleaning up...\n");
     }
 
-    free(start);
-    start = NULL;
+    if (start != NULL)
+    {
+        free(*start);
+        *start = NULL;
+        free(*start);
+    }
+
 }
