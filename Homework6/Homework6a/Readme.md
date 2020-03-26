@@ -25,6 +25,9 @@
 ## Comments after submission:
 ```    
 
-`- “copy from next to start in the record whose address is in start”???? It only remove one record. multiple return statements. trace: You must have other local variables in the stack in addition to start and uaccountno.
+1. Pseudocode:
+    - “copy from next to start in the record whose address is in start”???? It only remove one record. multiple return statements. 
+2. Trace: 
+    - You must have other local variables in the stack in addition to start and uaccountno.
    
 ```
