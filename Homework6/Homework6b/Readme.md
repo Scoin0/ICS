@@ -73,7 +73,7 @@ You are going to use ```git``` here. First, do some research about the ```git```
     
 # Test Plan    
 
-    - Write a test plan consisting of a series of tests and desired outcomes to completely test Project 1. You will need around 30 to 40 cases to go through all the requirements.
+Write a test plan consisting of a series of tests and desired outcomes to completely test Project 1. You will need around 30 to 40 cases to go through all the requirements.
     
 ---     
 
