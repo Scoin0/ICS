@@ -1,0 +1,75 @@
+In-Class Notes for March 25, 2020
+---------------------------------
+
+Homework7b:
+The reason we cannot use fscanf or fgets for any of these functions is because they work on strings and are mostly for 
+text. Binary files are different. Instead we would use the fread function. ... He also says gif wrong.
+To write to the file we'd use fwrite. He explains it's super easy to write to the file since we can say how many bytes to
+take up. The datatype is gonna be unsigned character array. In most cases, a character is one byte. There's something 
+called a typedef which creates a new datatype. For his example he does,
+
+    typedef uint char
+
+which says we're creating a new datatype named uint that is a character. We cannot use arithmetic operators or relational
+operators. Instead use bitwise operators.
+
+1D Arrays:
+Sort of reviewing what we've learned before,
+
+    int nums[3];
+ 
+This is one way of making a 1D array. The alternative way would be,
+
+    int * num;
+    num = (int *) malloc (3 * sizeof (int));
+    ....
+    free(num);
+
+Dynamic array we can dynamically change the size of the array during runtime while static arrays cannot be changed during
+runtime. Some other differences include we need to free the array from the memory in a dynamic array while static arrays
+are dropped after leaving the function. Pointers are stored on the stack vs. data and we can change where the pointer points
+to while in static we cannot. It's a final.
+
+2D Arrays:
+We can do static and dynamic array but also something in between. First we're starting with static,
+
+    int nums[2][4];
+    
+This means "give me 2 arrays of 4 ints".
+
+Say we did,
+
+    change2D(nums);
+    
+    void change2D(int p[][4])
+    {
+        p[1][3] = 7;
+        
+    }
+
+We'd have to write a function everytime we wanted to add something to the 2D array. *At least that's what I think I heard,
+I was writing something else at the same time* 
+
+A way to make the array dynamic would be to able to change the rows and the columns at same time. Going back to the previous code,
+
+    int nums [2][4];
+    
+that being static and dynamic would be,
+    
+    int * nums [3]; //An array of three pointers. 
+    
+    num[0] = (int *) malloc (4 * sizeof(int )) //and we'd do this for each pointer.
+    
+    num[1][3] = 5; //We can still do this
+    *(*(nums + 1) + 3) = 5 //get the address of the int then dereferences again to get the value.
+    change2D(nums);
+    ....
+    
+    //These two are basically the same thing.
+    void change2D(int *p[])
+    {
+        p[1][3] = 5;
+        *(*(p + 1) + 3) = 5;
+    }
+    
+    
