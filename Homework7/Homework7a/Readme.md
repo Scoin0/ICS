@@ -4,7 +4,7 @@
 # Recursion
 
 The road stripe painters have formed a union. Each painter only paints a section of 3 miles or shorter of stripes on the road and charge $300/mile for the service. If the road is longer than 3 miles, the worker paints the first 3 miles. Then, he/she additionally charges $50 and hires two other workers to paint the rest of the road. The workers have a rule that an experienced worker and a novice must be hired under subcontract. The experienced worker is assigned to 70% of the road, and the novice to 30%. Each of the hired painters will do the same thing as the original painter did.    
-For example, let's say the entire road is 13 miles long.    
+1. For example, let's say the entire road is 13 miles long.
     - The worker0 paints the first 3 miles of the road (charging $300 x 3), then hires worker1 and worker2 (charging $50).
         - The worker1 takes 70% of the unfinished road (10 miles), i.e., 7 miles
         - The worker2 takes 30%, i.e., 3 miles.
