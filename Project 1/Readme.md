@@ -88,8 +88,6 @@ This project combines homework and/or concepts from Homework 3 through 6.
 
 ```    
 
-1. Test Plan:
-    - Testing arguments? 
-    - How does it test readfile/writefile?
+Assignment has not been returned yet.
    
 ```
