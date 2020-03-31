@@ -1,0 +1,82 @@
+In-Class Notes for Mar 30, 2020
+-------------------------------
+
+C++:
+He did an explination on the history of C and C++. From what I understood as a TLDR... Assembly sucks.
+C++ left out the standard library from C. But incorperates everything else from C as well as adding more stuff like classes.
+Some syntaxes that were changed are malloc and free. These were changed to new and delete. Another thing that was added
+was the datatype, Reference Datatype.
+
+An example of the C++ language,
+    
+    #include <iostream>
+    using namespace std;
+    
+    int main (int argc, char * argv [])
+    {
+        cout << "Hello world!\n";
+        return 0;
+    }
+ 
+The main difference between Java and C is the classes. Java has classes but C does not. Now what's the difference between
+Java and C++? Java requires a class to run the main function while C++ does not. The main function does not exist within a
+class. Once the main function is called, the it will run other functions or other classes.
+
+    #include <iostream>  // Don't need to add the '.h' but you can
+    using namespace std; // Replaces the header file that was used in C
+    
+    int main (int argc, char * argv [])
+    {
+        Circle c; // Object Creation
+        
+        c.printradius(); // Go to printradius function and call it. 
+        
+        cout << "Hello world!\n"; // Basically like the printf function.
+        // If we didn't add the namespace std. Then we would have to write the cout as std::cout.
+        return 0;
+    }
+    
+This is an example of calling a class which is similar to how we are used to in Java. When compiling, it's much just like
+C. Instead of using 'gcc' use 'g++'. and the extenstion for the files are '.cpp'. 
+-------------------------------
+
+Reference Datatype:
+There are two meanings for '*'. We could say 'int * p;' or  '*p = 5'. In the second one, the '*' is on the left which means
+write to that address. If it was on the right then we would read from that address. The reason we add the space to the first
+one is to show that it's a pointer. In C++ we could do 'int & j;' which is the same as int. 'j' is an int but does not take
+up any memory.... Fuck it. He's writing a lot of stuff that probably should be formatted better.
+
+    int i;
+    int & j = i; // This will allow us to point to it without having to dereference (Passing by reference)
+    
+There. This would be a proper use for it as I understand. 
+
+"Why would we use this. It just becomes confusing for multiple programmers."
+"Exactly!"
+
+    int j = i // Passing by value
+    
+We don't need to do pointers. Instead just using '&'.
+
+"Great. After spending an entire semester using pointers, we're now learning how to get rid of it."
+    
+    // The & just says that the startref is a record pointer but we don't allocate space for it.
+    void addRecord (struct record * & startref, 
+    
+    addRecord(start,)
+    // We would just need to pass start.
+    
+Class Question:
+Are we passing a and b by reference or value?
+
+    double a, b;
+    ...
+    swap(a, b);
+    
+We don't know because we would need to see the definition. 
+   
+   void swap(double c, double & d){}
+   
+So now we know that a is passed by value and b is passed by reference.
+    
+
