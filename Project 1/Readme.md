@@ -87,7 +87,13 @@ This project combines homework and/or concepts from Homework 3 through 6.
 ## Comments after submission:
 
 ```    
-
-Assignment has not been returned yet.
-   
+1. Compilation Warnings.
+2. Functions
+    - Are not supposed to print anything in the regular mode.
+3. Coding Style
+    - Multiple return statements.
+    - Reords are added in opposite order.
+    - The printRecord does not print a duplicate record.
+    - The writeFile function calls fclose even when a file is not open.
+    - The cleanup function does not work.
 ```
