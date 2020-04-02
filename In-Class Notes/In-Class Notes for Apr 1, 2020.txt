@@ -1,0 +1,99 @@
+In-Class Notes for April 1st, 2020
+-------------------------------
+
+"Well, if you're late you're gonna have to wait for me to remember to let you in. If I remember..."
+
+C++:
+Check for 'setw' and 'setprecision'. Structures do not go away in C++. The difference between a struct and a class is
+there are no methods in structs and there is no concepts of visibility. So no constructor, no public, no private, and no
+protected. As an example of a class with public and private;
+    
+    Point.cpp
+    class point
+    {
+        private:
+            int x;
+            int y;
+            void setColor();
+            // void setColor()
+            // {
+            // }
+            // This is for the exmaple below.
+            
+        public:
+            int size;
+            Point();
+            // Point() {}
+            // This is for the example below.
+    };
+    
+Going back to Java knowledge, what is the difference between public and private? The level of access between public, private,
+and protected. Final in Java says that it cannot be changed.
+
+"What's the opposite of static?" "Not having static."
+
+Let's have 3 category of words,
+static vs. instance
+public vs. protected vs. private
+const
+
+These 3 things do completely different things. Remember that static has absolutely nothing to do with who can access it
+and if it can be accessed. Same goes with const. It's just shows that we can see it but is unchangable. Access means
+read AND write for a variable. Access for a method just means if it can be called. Private for a field of data means it
+can only be accessed within the class. Public means it can be accessed from within and outside the class. Lastly, protected
+means that this class and the child classes can only be accessed. Now, going back to the first question, Can everything within
+a class be private? Is there any use for it? Yes. This class just becomes the parent classes which then you add child classes
+which can be modified and changed. As he put it, it's like creating your own main.
+
+    main.cpp
+    {
+        Point p;
+        ...
+    }
+    
+If compiled, an error would occur because point.cpp is not included. After being added it should compile normally, now
+what will happen when linking? A definition error will occur. The linker thinks that there are mulitple definitions for
+setColor() and Point(). If setColor() was a prototype, the linker will ask for the definition as it doesn't exist. 
+
+While talking to us, he lost the file and rewrote it as something that could properly run.
+
+    Point.h
+    class Point
+    {
+        private: 
+            int x;
+            int y;
+            int color;
+        
+        public:
+            Point();
+            void setColor(int);
+    };
+    
+    Point.cpp
+    #include "point.h"
+    
+    Point::Point()
+    {
+    }
+        
+    void Point::setColor(int c)
+    {
+        this->color = c;
+    }
+    
+    Main.cpp
+    #include "point.h"
+    
+    int main(int argc, char *argv[])
+    {
+        Point *p1;
+        Point p2;
+        p1 = new Point();
+        p1->setColor(10);
+        p2.setColor(5);
+        delete p1;
+    }
+
+'::' means the scope operator. 'new' is the same as malloc. There's is a invis parameter which is 'this' in both Point functions.
+
