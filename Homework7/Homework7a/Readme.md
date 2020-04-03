@@ -60,6 +60,9 @@ The road stripe painters have formed a union. Each painter only paints a section
 
 ```    
 
-Assignment has not yet been returned.
-   
+1. Testing
+    - With 0?
+2. Coding Style
+    - Multiple return statements
+    
 ```
