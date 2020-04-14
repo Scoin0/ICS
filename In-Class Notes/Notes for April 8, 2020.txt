@@ -1,0 +1,34 @@
+In-Class Notes for April 8, 2020
+--------------------------------
+
+Project 2 Overview and Questions:
+We are still using the struct record but the record isn't a class. Rather the linked list is going to be the class. 
+
+    p = new double[1]; // same as new double;
+    delete p;
+    
+    p = new double[2];
+    delete [] p;
+    
+These are just some cases that you'll have to do when freeing up memory. Don't need to use the bracket with an array of
+one but will have to if the array is two or more. Much like Java without the constructor, C++ can do the same as well. 
+However, probably should write it in. 
+
+    if (debugMode) // This is the code for the C program
+    {
+        printf("...");
+    }
+    
+    #ifdef DEBUGMODE // This will be the C++ version
+        printf("...");
+    #endif
+    
+Wherever we had the C version, replace with the #ifdef. In order to show the debugmode you'll have to use the -D option
+as shown below.
+
+    g++ -D DEBUGMODE ...
+    
+If we want to run the program with debugmode on, add #define above the #ifdef and comment it out when compiling the finished
+version. But for our project, do it twice so one can have the debug mode and one can have the commented #define.
+
+Just took Quiz 7. monkaS.
