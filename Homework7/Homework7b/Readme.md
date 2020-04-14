@@ -29,9 +29,9 @@ You can see actual binary data in the file by "xxd" command on Unix or other bin
     - Write the data to a new file.
 2. Input Files.
     - I grabbed these files from the course website.
-    image1.gif | image2.gif | image3.gif
-    -----------|------------|-----------
-    ![image1.gif](http://www2.hawaii.edu/~tidota/ics212s2020/hw/hw7b/image1.gif) | ![image2.gif](http://www2.hawaii.edu/~tidota/ics212s2020/hw/hw7b/image2.gif) | ![image3.gif](http://www2.hawaii.edu/~tidota/ics212s2020/hw/hw7b/image3.gif)
+    | image1.gif | image2.gif | image3.gif |
+    | ---------- | ---------- |----------- |
+    |![image1.gif](http://www2.hawaii.edu/~tidota/ics212s2020/hw/hw7b/image1.gif) | ![image2.gif](http://www2.hawaii.edu/~tidota/ics212s2020/hw/hw7b/image2.gif) | ![image3.gif](http://www2.hawaii.edu/~tidota/ics212s2020/hw/hw7b/image3.gif) |
 3. Output Files.
     - The resulted file will have the modified color tables, but the other parts must be identical to those in the original file. The file names MUST be result1.gif, result2.gif and so on.
 4. The code must have the following functions. All functions must be called in main.
@@ -45,9 +45,4 @@ You can see actual binary data in the file by "xxd" command on Unix or other bin
 
 ```    
 
-1. Testing
-    - With 0?
-2. Coding Style
-    - Multiple return statements
-    
 ```
