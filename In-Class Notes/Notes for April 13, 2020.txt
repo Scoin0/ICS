@@ -1,0 +1,47 @@
+In-Class Notes for April 13, 2020
+--------------------------------
+
+This is something someone did, don't use the names in our class as local variables. You'll become confused. As he put it,
+it makes it difficult to trace later. Also this doesn't really do anything. Since start is techniqually unknown so you're
+just adding that unknown value to itself.
+    int addRecord(......, llist * this)
+    {
+        record * start;
+        start = start;
+    }
+    
+Why <cstring> as opposed to <string>. Because there's an actual String class which is similar to Java than to C.
+Suppose you have three Strings.
+    s1 = "Hello";
+    s2 = " world";
+    
+    s3 = s1 + s2; 
+The expectation of the output of s3 should be "Hello World". Someone wrote, that the + operator is overloaded to concatenate
+strings. 
+
+Implementation of Reverse.
+    
+    struct record * reverse(struct record *)
+    {
+        reverse();
+    }
+    
+    Call in main...
+    l.start = reverse(l.start);
+    
+Two things that changed from C to C++.
+Memory - malloc and free - NO MORE
+No printf, scanf, fgets - changed to cin and out methods.
+
+const is just like final in Java.
+
+We began talking about #define and how to use it.
+
+    #define MAX 10
+    #define A
+    #define max (a, b) if (a > b)
+    
+    int arr[MAX];
+    int i;
+    for (i = 0m i < MAX: i++)
+    

@@ -1,0 +1,72 @@
+Test Help Questions:
+
+Prompt: I am a C programmer and have been using make for compiling and linking. Apparently a month ago, my computer clock got
+reset to a random time. I just realized it today and of course I change the time to the current time.
+
+What impact would it have on my executables? (Explain)
+What exact action should I take, if any? (Explain)
+
+My answer: The impact the different system time could have on the executables shouldn't be too great. Since this hasn't 
+happened to me I would think that the make file will end up recompling everything since all files are seen as being 
+newer than what was there before. To fix it, I think I would just remove files and recompile everything.
+
+His answer: Since Makefile uses the timestamp of a file to determine if it needs to be recompiled, the impact would be that 
+some files might not get compiled. The executable may not be based on the latest source code. Delete all dependeceies (object
+and executable) to ensure that everything gets recompiled.
+
+My Own Thoughts: I was closeish. Not great but hey, at least I got somewhere close.
+
+Tracing with Classes:
+
+class House
+{
+    private: 
+        int numRooms;
+    protected:
+        float size;
+    public: 
+        int color;
+        House()
+        {
+            numRooms = 1;
+        };
+        ~House();
+        void setRooms(int r)
+        {
+            numRooms = r;
+        };
+};
+
+void main(int argc, char * argv[])
+{
+    House *h1, h2;
+    h1 = new House();
+    h1->setRooms(3); <- Remember the '->' is because it's a pointer. Also it's sending 3 and the value of the pointer (4000)
+    //STOP TRACE
+}
+
+STACK:
+-------------------------------------------------------------------------
+|ADDRESS |    NAME      |   DATATYPE  |       SCOPE        |   VALUE    |
+|50000   |    argc      |     int     |       main         |     ?      |
+|50004   |   argv[]     |    char *   |       main         |     ?      |
+|50012   |     h1       |    House *  |       main         |   ? > 4000 |
+|50020   |  h2          |    House    |       main         |     ?      | <- From here is just an example of something we could do
+|             .numRooms |     int     |       main         |   ? > 1    |
+|             .size     |    float    |       main         |     ?      |
+|             .color    |     int     |       main         |     ?      |
+|50032   |    this      |    House *  |    House::House    |    50020   | <- This has been deleted. Just strike through it
+|50032   |    this      |    House *  |    House::House    |    4000    | <- This has been deleted. Just strike through it
+|50040   |    this      |  Building * | Building::Building |    4000    | <- This has been deleted. Just strike through it
+|50032   |      r       |     int     |   House::setRooms  |     3      | <- This has been deleted. Just strike through it
+|50036   |    this      |    House *  |   House::setRooms  |    4000    | <- This has been deleted. Just strike through it
+-------------------------------------------------------------------------
+
+HEAP:
+--------------------------------------------------
+|ADDRESS | NAME         | DATATYPE |    VALUE    |
+|4000    |              |  House   |      ?      | 
+|             .numRooms |   int    |  ? > 1 > 3  |
+|             .size     |  float   |      ?      |
+|             .color    |   int    |      ?      |
+--------------------------------------------------

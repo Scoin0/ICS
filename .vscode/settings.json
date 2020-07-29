@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "ios": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "homework9.h": "c",
+        "jni.h": "c",
+        "xstring": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "xtree": "cpp"
+    },
+    "java.home": "C:\\Program Files\\Java\\jdk-12.0.2"
+}

@@ -1,0 +1,206 @@
+In-Class Notes for May 4th, 2020
+---------------------------------
+
+Continuing from last class. Now it's polymorphism.
+I am copying the notes directly from the notepad he has written.
+
+class Shape // This class is now abstract
+{
+    private:
+        int color;
+        
+    protected:
+        int visible;
+        
+    public:
+        Shape();
+        ~Shape();
+        int getColor();
+        int getColor(int, int);
+        virtual void draw()=0; // pure virtual method
+};
+
+class Circle : Shape
+{
+    private:
+        int x;
+        int y;
+    
+    public:
+        Circle();
+        ~Circle();
+        void draw();
+        void move();
+};
+
+int main()
+{
+    Circle c;
+    //Shape s,  Cannot work now
+    Shape *s1;
+    
+    //s.draw(); Cannot work now
+    c.draw();
+    
+    s1 = &c;
+    s1->draw(); // This will draw Shape's draw() and not Circle's draw().
+    
+    sarr[0] = &c;
+    sarr[1] = & r; // r is a rectangle
+    
+    for loop (to lazy to write) // This will draw the shapes
+    sarr[i].draw();
+}
+
+Polymorhpism: (What are the requirements for polymorphism)
+
+Parent and child class with overriding method
+Parent pointer pointing to child object
+Calling the overridden method using the parent pointer
+
+Without these three, there is no polymorphism. If we meet these conditions we have polymorphism. Placing 'virtual' in front
+of a variable we have polymorphism as well. Now we're going over something from a previous class. I think it was in 
+ICS 111 and it was also for Polymorhpism. He talked about how when we creating the Shape class for one of the 
+assignments the parent was actually the Object. As an example, here's some stuff he's typing,
+
+Object and Circle - toString
+
+Circle c; 
+c = new Circle();
+System.out.println(c);
+
+void println(Object o) ... Object o = c; // o is the parent pointer and c is the child pointer.
+{
+    o.toString();
+}
+
+Right as he wrote this, he said that with our limited knowledge back then we should have easily noticed something was wrong.
+One thing off the bat that I notice is that he did not do 'new Circle();' So we have yet to actually create the object. We're
+using the above conditions to prove that we've done polymorphism. When we overridden the toString method in Java the 
+println automatcally called the objects toString method. I don't ever remember this being talked about when we first 
+learned about this in Java.
+
+For the homework assignment, it should be pretty easy. He states there will be more comments than before. Every get 
+and set must have a comment. If I have time I might do a little more since it's a pokedex. I want to add all
+types and call all original pokemon. Perhaps we will talk about vector and map?
+
+------------------------------------------------------------------------------------
+
+The Keyword Static:
+
+Copying the classes from above to show what static does. Static is NOT the same as const. It has nothing to do with
+changing. It has to do with the variable and if it's shown within the object. I might have wrote that weirdly but
+the color variable will not show up on the stack. However it will appear within the DATA section and will show like so,
+Circle::color. Static is the most abused keyword in C++. Within a instance method you can access both static and instance
+data. A static method can only access static variables.
+
+class Shape
+{
+    private:
+        //static int color; Moved to protected
+    
+    protected:
+        int visible;
+        static int color;
+    
+    public:
+        Shape();
+        ~Shape();
+        //int getColor(); changed to static int getColor();
+        static int getColor();
+};
+
+class Circle
+{
+    private:
+        int x;
+        int y;
+    
+    public:
+        const static float PI = 3.14; // This allows us to access it from anywhere, be unchanged (const), and allow PI
+                                      // to sit in the data section. It will look like Circle::PI;
+        Circle();
+        ~Circle();
+        void move();
+};
+
+int main()
+{
+    Circle::color = 3; // This would allow us to change color. But will not compile because it's in private.
+    // If we changed it to public we could change it but it would change all circles.
+    
+    ------
+    Circle c;
+    int col;
+    c.printData(); // &c
+    col = Circle::getColor(); // You do not have a this pointer in a static method because we did not use an object
+                              // to call it.
+}
+
+void Circle::printData() // This method is an instance
+{
+    cout << x; // in front of x it will add this->. The below ones will show the correct form (instance)
+    cout << this->y; // instance
+    cout << Circle::color; // static
+}
+
+static int Circle::getColor() // This is a static method
+{
+    cout << this->x;
+    return Circle::color;
+    // This will not compile because we cannot have this->.
+}
+
+C++ Overview:
+Reference Datatype
+Data vs Method
+Const
+Static vs Instance
+Private/Public/Protected
+Polymorhpism
+Overloading
+Copy Constructors
+
+------------------------------------------------------------------------------------
+
+Going back to C. He said he wanted to teach us a little bit more about passing pointers. In here, we could make start
+a global variable so that we wouldn't have to write the same line over and over. We can just call and change start
+from wherever.
+
+> main.c
+
+extern struct record * start; // This is a global variable
+
+> database.c
+
+static struct record * start = NULL;
+
+addRecord(int accountno, ...);
+deleteRecord();
+
+------------------------------------------------------------------------------------
+
+On the Stack:
+Address
+Name
+Datatype
+Scope
+Value
+(Lifetime) // Another one that was never discussed about
+
+Most of the time Scope and Lifetime are identical but lifetime tells when the function is called and when it's destroyed.
+An easy way to understand is that its at what point, rather than lines, does the function show up. Static changes the
+lifetime of the varible but not the scope. On the data section a will be added when the main function is called. It's
+like a global variable. The lifetime for it is the duration of the entire program.
+
+void func()
+{
+    static int a;
+    a++;
+}
+
+------------------------------------------------------------------------------------
+Pointers to functions:
+
+Something that was not discussed but he said that we could take a function and pass a pointer of it. If I understood correctly?
+But it's not something that we need.

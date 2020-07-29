@@ -1,0 +1,38 @@
+In-Class Notes for April 29, 2020
+---------------------------------
+
+We are doing a bottom up program? I wasn't really listening only just somewhat chimed in. From what I can gather we are 
+building classes before making the parent class. A generic class.
+
+Circle: 
+Data: 
+    radius          - double
+    PI              - const float
+    positionX       - double
+    positionY       - double
+    isVisible       - bool
+    color           - int
+    border          - double (if 0 then no border)
+    borderColor     - int
+    borderOpacity   - double
+    borderPattern   - ?
+    fillPattern     - ?
+Methods Names:
+    radius          -> resize, rescale
+    PI              -> ?
+    positionX       -> position, doMove
+    positionY       -> position, doMove
+    isVisible       -> isVisible
+    color           -> setColor
+    border          -> hasBorder
+    borderColor     -> setBorderColor
+    borderOpacity   -> setBorderOpacity
+    borderPattern   -> setBorderPattern
+    fillPattern     -> fillPattern
+    
+These are just some data that we might need within a circle class.
+Ah, we are looking at OO programming. He said, the way you should write your code should be readable and understandable
+without looking at documentation. The point here is that OOP is centered around Object Oriented Design. He want's us
+to understand classes and really look in to how classes are structured.
+
+Next week, polymorphism
