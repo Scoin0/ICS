@@ -1,9 +1,9 @@
 /***************************************************************************
 //
-//    NAME:         John Lewis
+//    NAME:         
 //    HOMEWORK:     Project 2
 //    CLASS:        ICS 212
-//    INSTRUCTOR:   Ravi Narayan
+//    INSTRUCTOR:   
 //    DATE:         Apr 19, 2020
 //    FILE:         record.h
 //    DESCRIPTION:  Contains the stuct record
